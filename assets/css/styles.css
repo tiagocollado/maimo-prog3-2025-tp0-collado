@@ -1,11 +1,17 @@
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  padding: o;
+  padding: 0;
   position: relative;
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+  background-color: #FFFFFF;
+  line-height: 1.6;
 }
 
 .kanit-light {
@@ -28,8 +34,9 @@ body {
 
 p {
   font-family: "Kanit", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 16px;
 }
 
 h1,
@@ -38,6 +45,20 @@ h3 {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
   font-style: normal;
+  color: #E16120;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 li {
@@ -49,10 +70,37 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
+  background-color: #FFF1E6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo_container {
+  flex: 0 0 auto;
+}
+
+header nav {
+  flex: 1; 
+  display: flex;
+  justify-content: flex-end;
 }
 
 header li a {
-    color: black;
+  color: #333333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+header li:first-child a {
+  color: #E16120;
+  background-color: rgba(225, 97, 32, 0.1);
+}
+
+header li a:hover {
+  color: #E16120;
+  background-color: rgba(225, 97, 32, 0.1);
 }
 
 header ul {
@@ -63,7 +111,7 @@ header ul {
 }
 
 header .logo_container img {
-  width: 150px;
+  width: 100px;
 }
 
 .hero {
@@ -71,49 +119,183 @@ header .logo_container img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
+  position: relative;
+  overflow: hidden;
 }
 
-.recetas_grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+
+.hero h1 {
+  position: relative;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 48px;
+  z-index: 2;
 }
 
 .boxed {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 60px 15px;
+}
+
+.recetas {
+  background-color: #f8f4ef; 
+  padding: 40px 0;
+}
+
+.recetas h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.recetas_grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
 }
 
 .receta {
   grid-column: span 4;
-  background-color: #555555;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
+}
+
+.receta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .receta img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.single_content{ /*cambiar*/
-  color: black;
+.receta h3 {
+  color: #E16120;
+  padding: 15px 15px 5px 15px;
 }
 
-.single_content ul{
+.receta p {
+  padding: 0 15px;
+  color: #666666; 
+}
+
+.receta a {
+  display: block;
+  text-align: center;
+  margin: 15px auto;
+  padding: 8px 20px;
+  background-color: #E16120;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+.receta a:hover {
+  background-color: #c05018;
+}
+
+.single_content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.single_content h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.single_content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.single_content ul {
   display: flex;
-  justify-content: center;
-  align-items: center;  
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #FFF1E6;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.single_content ul li {
+  flex: 0 0 48%;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.single_content ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #E16120;
 }
 
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 30px;
-  background-color: #dddd;
+  padding: 20px 30px;
+  background-color: #333333;
+  color: #FFFFFF;
   margin-top: 30px;
+}
+
+@media (max-width: 992px) {
+  .receta {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .receta {
+    grid-column: span 12;
+  }
+  
+  .single_content ul li {
+    flex: 0 0 100%;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
