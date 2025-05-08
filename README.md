@@ -21,10 +21,7 @@ No se requiere servidor ni instalación adicional.
 ## Autor
 
 - **Tiago Collado**
-
-## Profesor a cargo
-
-- **Leandro Amaro**
+- **Profesor a cargo: Leandro Amaro**
 
 ## 📄 Licencia
 
